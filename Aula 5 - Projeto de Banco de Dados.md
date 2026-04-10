@@ -129,3 +129,35 @@
 - Pode ser decomposto em atributos mais simples
   - **Ex.:** endereço (nome_rua, nro_casa,complemento, nome_bairro, cep)
 
+### Atributos Monovalorados x Multivalorados
+
+- **Monovalorado**
+
+<img width="222" height="84" alt="image" src="https://github.com/user-attachments/assets/620fefaa-86e2-472c-950e-df24c568ce34" />
+
+- Possui um único valor para cada entidade
+  - **Exemplo:** idade
+
+- **Multivalorado**
+
+<img width="198" height="73" alt="Captura de tela de 2026-04-10 14-40-36" src="https://github.com/user-attachments/assets/9aa94ac5-372d-4e3f-bcb5-ae289f4bb6e1" />
+
+- Múltiplos valores para cada entidade
+  - **exemplo:** atributo telefone.
+
+### Atributos Armazenado x Derivado 
+
+- **Armazenado**
+
+<img width="222" height="84" alt="image" src="https://github.com/user-attachments/assets/620fefaa-86e2-472c-950e-df24c568ce34" />
+
+- Está realmente armazenado no BD;
+  - Ex.: Nome da pessoa;
+
+- **Derivado**
+
+<img width="198" height="73" alt="image" src="https://github.com/user-attachments/assets/4c59760e-73be-4d74-ad9e-877eaa3bb418" />
+  
+- Pode ser determinado através de outros atributos ou através de entidades relacionadas;
+  - Ex.: idade = data_atual - data_nascimento
+  - Ex.: nro_empregados = soma de entidades
