@@ -83,7 +83,49 @@
 - Pode ser um objeto com existência **física** ou **abstrata**;
   - **Ex.:** no contexto bancário (funcionário, conta);
 - Descrito por propriedades/atributos.
-- **Entidade Forte:**
-  - Existe independentemente da existência de outra entidade.
-- **Entidade Fraca:**
-  - Depende da existência de outra entidade.
+- No modelo entidade relacionamento, as entidades são representadas por um **retângulo**.
+
+### Entidade Forte:**
+
+<img width="222" height="146" alt="image" src="https://github.com/user-attachments/assets/bfa22754-3882-4237-91b3-d65a18c2bf1f" />
+
+- Existe independentemente da existência de outra entidade.
+- No modelo entidade relacionamento, as entidades fortes são representadas por um **retângulo**.
+
+### Entidade Fraca:**
+
+<img width="222" height="146" alt="Captura de tela de 2026-04-10 14-31-19" src="https://github.com/user-attachments/assets/bdfdd462-afc1-4c03-b6a9-b8230e79ad47" />
+
+- Depende da existência de outra entidade.
+- No modelo entidade relacionamento, as entidades fracas são representadas por um **retângulo dentro de outro**.
+
+### Atributos
+
+<img width="222" height="84" alt="image" src="https://github.com/user-attachments/assets/620fefaa-86e2-472c-950e-df24c568ce34" />
+
+- Usados para descrever um conjunto de entidades ou de relacionamentos
+- **Ex:** o conjunto de entidades Empregado pode ter os seguintes atributos:
+  - Nome
+  - Matrícula
+  - Sexo
+  - Idade
+  - Endereço
+- **Obs.:** todas as entidades em um dado conjunto de entidades têm os mesmos atributos.
+- Os atributos são representados no modelo ER através de uma **elipse (círculo achatado)**.
+
+### Atributos Simples x Compostos
+
+- **Atributo simples ou atômico**
+
+<img width="222" height="84" alt="image" src="https://github.com/user-attachments/assets/620fefaa-86e2-472c-950e-df24c568ce34" />
+
+- Não pode ser decomposto (dividido) em atributos mais básicos.
+  - Ex.: sexo {M, F}
+
+- **Atributo composto**
+
+<img width="402" height="203" alt="Captura de tela de 2026-04-10 14-38-21" src="https://github.com/user-attachments/assets/964a8e72-2629-47dc-a45d-d3d884d0163b" />
+
+- Pode ser decomposto em atributos mais simples
+  - **Ex.:** endereço (nome_rua, nro_casa,complemento, nome_bairro, cep)
+
