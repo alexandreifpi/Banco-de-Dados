@@ -4,13 +4,14 @@
 
 ### Problemática
 
-Uma empresa de e-commerce, como a TechStore, pode precisar compartilhar dados de pedidos com uma parceira logística responsável pelas entregas. No entanto, por questões de segurança e privacidade, nem todas as informações do banco de dados devem ser expostas, especialmente dados sensíveis dos clientes, como CPF e telefone. 
+Uma empresa de e-commerce precisar compartilhar dados de pedidos com uma parceira logística responsável pelas entregas. No entanto, por questões de segurança e privacidade, nem todas as informações do banco de dados devem ser expostas, especialmente dados sensíveis dos clientes, como CPF e telefone.
 
 ### Solução
 
 Para resolver isso, a empresa cria uma view que reúne apenas os dados necessários para a operação da parceira, como identificação do pedido, nome do cliente, endereço de entrega e status. Dessa forma, a empresa garante acesso controlado, simplifica a integração e protege informações confidenciais, fornecendo à parceira uma visão específica e segura dos dados.
 
 ## O que são?
+
 - São consultas armazenadas em uma estrutura de fácil acesso baseadas num comando SELECT.
 - Funciona como uma tabela virtual, similar a uma tabela real.
 
