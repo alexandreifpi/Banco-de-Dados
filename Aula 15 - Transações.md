@@ -104,6 +104,24 @@
 
 ---
 
+### Exemplo Atomicidade
+
+1. leia(A)
+2. A := A - Y
+3. escreva(A)
+4. leia(B)
+5. B := B + Y
+6. escreva(B)
+
+---
+
+### Exemplo Atomicidade
+
+- Se a transação falhar após o passo 3 e antes do passo 6, o valor será perdido, levando a um estado de inconsistência do banco de dados.
+- Essa falha pode ser causada tanto por hardware, quanto por software.
+
+---
+
 ### Consistência
 
 - Implica que uma transação deve levar o banco de dados de um estado válido a outro estado válido.
@@ -111,12 +129,58 @@
 - Uma transação que provoca inconsistência nos dados deve ser rejeitada.
 - Portanto, a consistência garante que as regras de negócio e as restrições de integridade sejam sempre respeitadas, mantendo a qualidade e confiabilidade dos dados.
 
+--- 
+
+### Exemplo Atomicidade
+
+1. leia(A)
+2. A := A - Y
+3. escreva(A)
+4. leia(B)
+5. B := B + Y
+6. escreva(B)
+
+---
+
+### Exemplo Atomicidade
+
+- Uma transação ao iniciar deve ter um banco de dados consistente.
+- Quanto concluída deve deixar o banco de dados consistente.
+- Durando sua execução, o banco de dados pode ficar temporariamente inconsistente.
+- No passo 4, após escrever em A, meu banco de dados passa para um estado inconsistente.
+- No entanto, no passo 6, ao escrever em B, meu banco de dados passa para um estado consistente novamente.
+
 ---
 
 ### Isolamento
 
 - Princípio que garante que as operações de uma transação não afetem ou sejam afetadas por outras transações que estão sendo executadas ao mesmo tempo.
 - Isso é vital em ambientes de múltiplos usuários, onde várias transações podem estar ocorrendo simultaneamente.
+
+---
+
+### Exemplo Isolamento
+
+- Uma transação T1 não pode ser dependente de outra transação T2 que possa estar executando simultaneamente.
+- Mesmo que as duas transações sejam concorrentes (modifiquem o mesmo item de dados).
+
+---
+
+### Exemplo Isolamento
+
+| Tempo | T1 | T2
+| --- | --- | --- |
+| 1 | leia(A) |  |
+| 2 | A := A - Y |  |
+| 3 | escreva(A) |  |
+| 4 |  | leia(A) |
+| 5 |  | leia(B) |
+| 6 |  | imprima(A+B) |
+| 7 | leia(B) |  |
+| 8 | B := B + Y |  |
+| 9 | escreva(B) |  |
+
+
 
 ---
 
