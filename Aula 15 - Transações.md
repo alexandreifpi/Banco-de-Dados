@@ -180,8 +180,6 @@
 | 8 | B := B + Y |  |
 | 9 | escreva(B) |  |
 
-
-
 ---
 
 ### Durabilidade
@@ -191,6 +189,32 @@
 - Sistemas de gerenciamento de banco de dados (SGBDs) utilizam várias técnicas, como registros de log, para garantir a durabilidade das transações.
 
 ---
+
+## Estados de uma Transação
+
+<img width="756" height="369" alt="image" src="https://github.com/user-attachments/assets/49dc396f-007e-487a-9c7f-8ff64ea3bc87" />
+
+### Ativa
+
+- Estado inicial da transação.
+- A transação permanece neste estado enquanto estiver executando.
+
+### Parcialmente Efetivada
+
+- Após a execução de sua última operação.
+
+### Efetiva
+
+- Após a transação ser concluída com êxito.
+
+### Falha
+
+- Após a descoberta de uma falha na execução da transação.
+
+### Abortada
+
+- Quando uma transação é descartada por conta de falhas.
+- A transação de ser revertida e o banco de dados deve ser restaurado ao seu estado antes do início da transação.
 
 ## Referências
 
