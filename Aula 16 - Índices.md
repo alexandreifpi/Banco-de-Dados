@@ -72,25 +72,57 @@ SELECT * FROM clientes WHERE nome = 'Alexandre';
 
 ## Tipos de Índices
 
+**Índices Compostos**
+
+```sql
+CREATE INDEX idx_nome_cidade ON clientes(nome, cidade);
+```
+
+```sql
+SELECT * FROM clientes
+WHERE nome = 'Alexandre' AND cidade = 'São Paulo';
+```
+
+---
+
+## Tipos de Índices
+
 **Índices Primários**
 
 - Associado à chave primária da tabela, garante que os valores sejam únicos e ordenados.
+- Cada tabela pode ter apenas um.
 
 ---
 
 ## Tipos de Índices
 
-**Índices Único**
+**Índices Primários**
+
+- Associado à chave primária da tabela, garante que os valores sejam únicos e ordenados.
+- Cada tabela pode ter apenas um.
+
+---
+
+## Tipos de Índices
+
+**Índices Únicos**
 
 - Similar ao índice primário, mas pode ser aplicado a qualquer coluna, desde que os valores sejam únicos.
+- Uma tabela pode ter vários índices únicos.
 
 ---
 
 ## Tipos de Índices
 
-**Índices de Texto Completo**
+**Índices Únicos**
 
-- Específico para pesquisas em grandes volumes de texto, como artigos ou documentos.
+```sql
+CREATE UNIQUE INDEX idx_email ON clientes(email);
+```
+
+```sql
+SELECT * FROM clientes WHERE email = 'teste@email.com';
+```
 
 ---
 
