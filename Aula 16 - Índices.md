@@ -134,7 +134,20 @@ SELECT * FROM clientes WHERE email = 'teste@email.com';
 
 **Não indexe todas as tabelas**
 
-- Tabelas pequenas não requerem índices, pois uma varredura de tabela será mais eficiente do que procurar no índice e, em seguida, recuperar os dados da tabela.
+- Tabelas pequenas não requerem índices.
+- Em muitos casos, uma varredura completa (table scan) é mais rápida.
+
+---
+
+## Boas Práticas com Índices
+
+**Exemplo**
+
+```sql
+SELECT * FROM categorias;
+```
+
+- Se a tabela tem poucos registros (ex: 20 linhas), o índice não traz ganho.
 
 ---
 
@@ -142,17 +155,9 @@ SELECT * FROM clientes WHERE email = 'teste@email.com';
 
 **Não indexe todas as colunas**
 
-- A indexação de todas as colunas aumenta a sobrecarga para manter esses índices atualizados e torna mais lentas outras operações do banco de dados.
-- Indexe as colunas nas quais você filtra (ou seja, use com frequência nas cláusulas WHERE).
-
----
-
-## Boas Práticas com Índices
-
-**Não indexe todas as colunas**
-
-- A indexação de todas as colunas aumenta a sobrecarga para manter esses índices atualizados e torna mais lentas outras operações do banco de dados.
-- Indexe as colunas nas quais você filtra (ou seja, use com frequência nas cláusulas WHERE).
+- Muitos índices aumentam o custo de escrita (INSERT, UPDATE, DELETE).
+- Cada alteração precisa atualizar todos os índices.
+- Foque nas colunas mais usadas em filtros.
 
 ---
 
@@ -160,7 +165,8 @@ SELECT * FROM clientes WHERE email = 'teste@email.com';
 
 **Não indexe colunas grandes**
 
-- Um campo grande em sua tabela resultará em um índice grande.
+- Colunas grandes geram índices grandes.
+- Isso aumenta o uso de memória e reduz a performance.
 
 ---
 
@@ -168,13 +174,14 @@ SELECT * FROM clientes WHERE email = 'teste@email.com';
 
 **Indexe chaves estrangeiras**
 
-- Isso melhora o desempenho dos JOINs.
+- Melhora muito o desempenho de JOINs.
+- Evita varreduras completas em relações entre tabelas.
 
 ---
 
 ## Boas Práticas com Índices
 
-**Use Índices de várias colunas apenas quando for apropriado**
+**Use Índices compostos quando for apropriado**
 
 - Os índices compostos podem nos ajudar na melhoria de performance
 - Entretanto, é preciso considerar a ordem das colunas dentro do índice.
