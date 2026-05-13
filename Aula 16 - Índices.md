@@ -156,6 +156,43 @@ SELECT * FROM clientes WHERE email = 'teste@email.com';
 
 ---
 
+## Boas Práticas com Índices
+
+**Não indexe colunas grandes**
+
+- Um campo grande em sua tabela resultará em um índice grande.
+
+---
+
+## Boas Práticas com Índices
+
+**Indexe chaves estrangeiras**
+
+- Isso melhora o desempenho dos JOINs.
+
+---
+
+## Boas Práticas com Índices
+
+**Use Índices de várias colunas apenas quando for apropriado**
+
+- Os índices compostos podem nos ajudar na melhoria de performance
+- Entretanto, é preciso considerar a ordem das colunas dentro do índice.
+- Devemos criar um índice sobre o nome e a cidade ou sobre a cidade e o nome? Esses são dois índices diferentes.
+- Qual deles terá um desempenho mais eficiente?
+- A resposta dependerá das consultas SQL.
+- Em geral, um índice de coluna única é suficiente (e economiza tempo).
+
+---
+
+## Boas Práticas com Índices
+
+**Use índices para pré-classificar dados**
+
+- A classificação repetida de dados pode ser evitada quando um índice é adicionado com a ordem de classificação (ou seja, ascendente ou descendente).
+
+---
+
 ## Referências
 
 - https://clarify.com.br/blog/indices-sql-acelaram-consultas/
