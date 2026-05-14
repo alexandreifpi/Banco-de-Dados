@@ -1,4 +1,10 @@
-# Índices
+!!!capa
+instituicao: Instituto Federal do Piauí
+curso: Tecnologia em Sistemas para Internet
+disciplina: Banco de Dados
+professor: Alexandre Lages
+tema: Índices
+
 ---
 
 ## O que são índices?
@@ -18,7 +24,7 @@
 
 ## Como os Índices Funcionam?
 
-- Os índices armazenam os valores de uma ou mais colunas de maneira organizada, geralmente em uma estrutura de dados chamada árvore-B.
+- Os índices armazenam os valores de uma ou mais colunas de maneira organizada, geralmente em uma estrutura de dados chamada árvore-B (B-Tree).
 - Apesar dos índices acelerarem as consultas, eles consomem espaço de armazenamento.
 - Podem impactar inserções, atualizações e exclusões, pois precisam ser reajustados quando ocorrem mudança nos dados.
 
@@ -200,8 +206,97 @@ SELECT * FROM categorias;
 
 ---
 
+## Como o banco decide usar um índice ou não
+
+- O banco de dados usa um otimizador de consultas.
+- Ele escolhe se vale a pena usar o índice ou fazer table scan.
+
+**Exemplo**
+
+```sql
+SELECT * FROM clientes WHERE ativo = 1;
+```
+
+- Se 90% dos registros têm ativo = 1, o índice pode ser ignorado.
+- Pois filtrar quase tudo, seria melhor ler direto a tabela.
+
+---
+
+## Seletividade
+
+- Mede o quão únicos são os valores de uma coluna.
+
+**Alta seletividade (bom para índice):**
+
+- CPF
+- Email
+- ID
+
+---
+
+## Seletividade
+
+- Mede o quão únicos são os valores de uma coluna.
+
+**Baixa seletividade (ruim para índice):**
+
+- Sexo (M/F)
+- Status (ativo/inativo)
+- Resumo: quanto mais único, melhor o índice funciona.
+
+---
+
+## Índice não guarda todos os dados
+
+- O índice guarda o valor da coluna indexada e o ponteiro para a linha.
+- Por isso muitas vezes o banco usa o índice e depois busca o resto da linha na tabela.
+
+---
+
+## Índice pode não ser usado
+
+- Algumas situações quebram o uso do índice:
+
+**Uso de funções**
+
+```sql
+SELECT * FROM clientes 
+WHERE UPPER(nome) = 'ALEXANDRE';
+```
+
+---
+
+## Índice pode não ser usado
+
+- Algumas situações quebram o uso do índice:
+
+**Uso do LIKE**
+
+```sql
+SELECT * FROM clientes 
+WHERE WHERE nome LIKE '%alex';
+```
+
+- Porde não funcionar bem.
+
+---
+
+## Índice pode não ser usado
+
+- Algumas situações quebram o uso do índice:
+
+**Uso do LIKE**
+
+```sql
+SELECT * FROM clientes 
+WHERE WHERE nome LIKE 'alex%';
+```
+
+- Funciona melhor.
+
+---
+
 ## Referências
 
 - https://clarify.com.br/blog/indices-sql-acelaram-consultas/
 - https://learnsql.com.br/blog/guia-do-analista-de-dados-para-indexacao-sql-corrigir-consultas-lentas/#exemplo-n%c2%ba-2-de-indexa%c3%a7%c3%a3o-de-banco-de-dados
-
