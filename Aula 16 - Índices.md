@@ -93,6 +93,27 @@ WHERE nome = 'Alexandre' AND cidade = 'São Paulo';
 
 ## Tipos de Índices
 
+**Índices Compostos**
+
+!!!alerta
+A ordem importa nos índices compostos.
+
+- Esse índice ajuda em:
+
+```sql
+WHERE nome = ...
+WHERE nome = ... AND cidade = ...
+```
+
+- Mas NÃO ajuda em:
+```sql
+WHERE cidade = ...
+```
+
+---
+
+## Tipos de Índices
+
 **Índices Primários**
 
 - Associado à chave primária da tabela, garante que os valores sejam únicos e ordenados.
