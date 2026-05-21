@@ -219,18 +219,30 @@ SELECT * FROM categorias;
 
 ---
 
-## Boas Práticas com Índices
+## Como o banco decide usar um índice ou não
 
-**Use índices para pré-classificar dados**
+- O banco de dados usa um otimizador de consultas.
+- Ele escolhe se vale a pena usar o índice ou fazer table scan.
 
-- A classificação repetida de dados pode ser evitada quando um índice é adicionado com a ordem de classificação (ou seja, ascendente ou descendente).
+!!!info
+**Ele basicamente compara:**
+- Table Scan (ler toda a tabela)
+- Index Scan (usar o índice)
 
 ---
 
 ## Como o banco decide usar um índice ou não
 
-- O banco de dados usa um otimizador de consultas.
-- Ele escolhe se vale a pena usar o índice ou fazer table scan.
+!!!info
+**E como o banco sabe?**
+O banco mantém estatísticas sobre os dados:
+- Quantidade de linhas
+- Distribuição dos valores
+- Quantos valores distintos existem (cardinalidade)
+
+---
+
+## Como o banco decide usar um índice ou não
 
 **Exemplo**
 
