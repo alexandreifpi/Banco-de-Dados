@@ -14,11 +14,27 @@ tema: Bancos de Dados NoSQL
 ## Instalação do MongoDB no Linux
 
 ```bash
-sudo apt update
-sudo apt install -y mongodb-org
-sudo systemctl start mongod
-sudo systemctl status mongod
-sudo systemctl enable mongod
+$ sudo apt update
+$ sudo apt install -y mongodb-org
+$ sudo systemctl start mongod
+$ sudo systemctl status mongod
+$ sudo systemctl enable mongod
+```
+
+---
+
+## Executando o MongoDB
+
+```bash
+$ mongosh
+```
+
+---
+
+## Criando ou Acessando Banco de Dados
+
+```bash
+$ use escola
 ```
 
 ---
