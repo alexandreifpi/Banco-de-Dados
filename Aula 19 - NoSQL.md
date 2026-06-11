@@ -34,7 +34,15 @@ $ mongosh
 ## Criando ou Acessando Banco de Dados
 
 ```bash
-$ use escola
+use escola
+```
+
+---
+
+## Inserindo uma Informação
+
+```bash
+db.pessoas.insertOne({nome: "Alexandre Lages", idade: 32, cargo: "Professor"});
 ```
 
 ---
@@ -51,4 +59,21 @@ $ use escola
 
 ## Principais Características
 
-- **Dinâmico:** Permite criar estruturas de dados flexíveis que não exigem alterações no schema.
+!!!info
+**Dinâmico e Flexível**
+Permite criar estruturas de dados flexíveis que não exigem alterações no schema.
+Permite trabalhar com diferentes tipos de dados e estruturas dinâmicas, facilitando a adaptação conforme a necessidade da aplicação.
+
+---
+
+## Principais Características
+
+**Dinâmico e Flexível**
+
+```bash
+db.pessoas.insertOne({nome: "Maria Joana", idade: 20, matricula: "202602SI"});
+```
+
+```bash
+db.pessoa.find();
+```
